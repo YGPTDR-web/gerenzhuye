@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="愚人的个人主页 - 一个网络小白，ai逆向工程师，熟练建站一亿年" />
+  <title>愚人 · 个人主页</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 粒子背景 -->
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <!-- 顶部导航 -->
+  <nav class="nav">
+    <div class="nav__brand">~/yuren</div>
+    <ul class="nav__links">
+      <li><a href="#about">关于</a></li>
+      <li><a href="#projects">项目</a></li>
+      <li><a href="https://yrblog.qzz.io" target="_blank" rel="noopener">博客 ↗</a></li>
+    </ul>
+  </nav>
+
+  <!-- 主体 -->
+  <main class="container">
+    <header class="hero">
+      <p class="hero__hello">Hello, I'm</p>
+      <h1 class="rainbow" data-text="愚人">愚人</h1>
+      <p class="hero__sub">在代码与好奇心的交界处游荡，把网络当成游乐场。</p>
+    </header>
+
+    <section id="about" class="cards">
+      <article class="card glass">
+        <div class="card__icon">🌱</div>
+        <h2 class="card__title">网络小白</h2>
+        <p class="card__desc">永远保持初学者的心态，对每一个"为什么"都认真发问。</p>
+      </article>
+      <article class="card glass">
+        <div class="card__icon">🧠</div>
+        <h2 class="card__title">AI 逆向工程师</h2>
+        <p class="card__desc">拆解模型、追问权重背后的逻辑，在黑盒里找出口。</p>
+      </article>
+      <article class="card glass">
+        <div class="card__icon">🛠️</div>
+        <h2 class="card__title">熟练建站一亿年</h2>
+        <p class="card__desc">从前端到部署，从静态到全栈，键盘上磨出了岁月。</p>
+      </article>
+    </section>
+
+    <section id="projects" class="projects">
+      <h2 class="section-title">项目</h2>
+      <a class="project glass" href="https://yrblog.qzz.io" target="_blank" rel="noopener">
+        <div class="project__left">
+          <span class="project__name">个人博客</span>
+          <span class="project__url">yrblog.qzz.io</span>
+        </div>
+        <div class="project__desc">记录技术、逆向与生活的随笔。</div>
+        <span class="project__arrow">→</span>
+      </a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> 愚人 · Built with curiosity</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
