@@ -108,12 +108,43 @@ body {
 }
 @keyframes rainbow-flow { to { background-position: 200% center; } }
 
+/* ---------- 风吹波浪文案 ---------- */
 .bio {
   color: var(--muted);
   text-align: center;
   font-size: 0.9rem;
-  line-height: 1.6;
+  line-height: 1.8;
   margin-bottom: 30px;
+  min-height: 48px; /* 确保文字波动时有足够空间 */
+  font-weight: 500;
+}
+
+.wind-effect span {
+  display: inline-block;
+  /* 以底部为中心变形，模拟从下往上吹的风 */
+  transform-origin: bottom center;
+  animation: wind-blow 2.4s ease-in-out infinite;
+  /* 文字自带微弱发光，增加风吹时的反光感 */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes wind-blow {
+  0%, 100% {
+    transform: translateY(0) skewY(0deg);
+    opacity: 0.7;
+  }
+  25% {
+    transform: translateY(-5px) skewY(-4deg);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-8px) skewY(0deg);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-5px) skewY(4deg);
+    opacity: 0.9;
+  }
 }
 
 .contact-box { width: 100%; margin-bottom: 25px; }
@@ -183,7 +214,6 @@ body {
   display: inline-block;
   animation: flag-wave 2.5s ease-in-out infinite;
   transform-origin: center top;
-  /* 像素字体阶梯效果 */
   image-rendering: pixelated;
 }
 
