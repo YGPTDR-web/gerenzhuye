@@ -3,7 +3,6 @@ const qqBox = document.getElementById('qq-copy');
 qqBox.addEventListener('click', () => {
   const qqNumber = '2807078381';
   
-  // 使用现代剪贴板API
   if (navigator.clipboard) {
     navigator.clipboard.writeText(qqNumber).then(() => {
       showCopied();
@@ -39,8 +38,7 @@ function showCopied() {
   }, 2000);
 }
 
-// 2. 像素横幅迎风飘扬拆分
-// 将文字拆分为单个字符，并赋予不同的动画延迟，模拟波浪/旗帜飘扬效果
+// 2. 顶部像素横幅迎风飘扬拆分
 const flagElement = document.getElementById('flag-text');
 const flagText = flagElement.innerText;
 flagElement.innerHTML = '';
@@ -48,17 +46,27 @@ flagElement.innerHTML = '';
 [...flagText].forEach((char, index) => {
   const span = document.createElement('span');
   span.innerText = char === ' ' ? '\u00A0' : char;
-  // 根据字符索引设置不同的延迟，营造从左到右的波浪传递感
   span.style.animationDelay = `${index * 0.15}s`;
   flagElement.appendChild(span);
 });
 
-// 3. 滚动平滑与卡片视差（可选增强）
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
+// 3. 左侧介绍“风吹波浪”效果拆分
+const bioElement = document.getElementById('bio-text');
+const bioText = bioElement.innerText;
+bioElement.innerHTML = '';
+
+[...bioText].forEach((char, index) => {
+  const span = document.createElement('span');
+  span.innerText = char === ' ' ? '\u00A0' : char;
+  // 针对标点符号不添加过大的波动，只做轻微延迟
+  const isPunctuation = /[，。！？、,.!?]/.test(char);
+  
+  if (isPunctuation) {
+    span.style.animation = 'none';
+  } else {
+    // 0.12s 的间隔让波浪从左到右依次起伏
+    span.style.animationDelay = `${index * 0.12}s`;
+  }
+  
+  bioElement.appendChild(span);
 });
